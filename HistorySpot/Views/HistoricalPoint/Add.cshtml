@@ -1,0 +1,55 @@
+﻿@model HistorySpot.Models.ViewModels.AddHistoricalPointRequest
+
+<div class="container mt-5">
+    <h2>Lägg till en ny historisk plats</h2>
+
+    <form asp-action="Add" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="ImageUrl">Bild-URL:</label>
+            <input type="url" class="form-control" id="ImageUrl" name="ImageUrl" placeholder="https://example.com/image.jpg" />
+            <small class="form-text text-muted">Ange en extern länk till bilden om du inte vill ladda upp en lokal fil.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="ImageFile">Ladda upp en bild:</label>
+            <input type="file" class="form-control-file" id="ImageFile" name="ImageFile" />
+            <small class="form-text text-muted">Om en URL är angiven ovan kommer den lokala filen att prioriteras.</small>
+        </div>
+
+        <!-- Andra fält som Namn, Beskrivning etc... -->
+
+        <div class="form-group">
+            <label for="Name">Namn:</label>
+            <input type="text" class="form-control" id="Name" name="Name" required asp-for="Name" />
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Beskrivning:</label>
+            <textarea class="form-control" id="Description" name="Description" required asp-for="Description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Latitude">Latitude:</label>
+            <input type="number" step="0.000001" class="form-control" id="Latitude" name="Latitude" required asp-for="Latitude" />
+        </div>
+
+        <div class="form-group">
+            <label for="Longitude">Longitude:</label>
+            <input type="number" step="0.000001" class="form-control" id="Longitude" name="Longitude" required asp-for="Longitude" />
+        </div>
+
+        <div class="form-group">
+            <label for="Date">Datum:</label>
+            <input type="date" class="form-control" id="Date" name="Date" required asp-for="Date" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Lägg till</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        var editor = new FroalaEditor('#ImageUrl');
+        var editor = new FroalaEditor('#Description');
+    </script>   
+}

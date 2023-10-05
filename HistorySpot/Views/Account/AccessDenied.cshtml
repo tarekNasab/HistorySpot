@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="container mt-5">
+    <h1 class="text-danger">@ViewData["Title"]</h1>
+    <p class="lead">You do not have permission to access this resource.</p>
+    <p>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Return to Home</a>
+    </p>
+</div>

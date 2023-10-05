@@ -1,0 +1,72 @@
+﻿@model HistorySpot.Models.ViewModels.EditHistoricalPointRequest
+
+@{
+    ViewData["Title"] = "Edit Historical Point";
+}
+
+<h2>Edit Historical Point</h2>
+
+ @if(Model !=null)
+{
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Date">Date</label>
+            <input type="date" asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Longitude">Longitude</label>
+            <input asp-for="Longitude" class="form-control" />
+            <span asp-validation-for="Longitude" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Latitude">Latitude</label>
+            <input asp-for="Latitude" class="form-control" />
+            <span asp-validation-for="Latitude" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageUrl">Image URL</label>
+            <input asp-for="ImageUrl" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Upload Image</label>
+            <input type="file" name="image" class="form-control" />
+            <small class="form-text text-muted">If you upload a new image, it will replace the current image URL.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a asp-action="List" class="btn btn-secondary">Cancel</a>
+    </form>
+}
+else
+{
+    <p>Historical poin was not found!</p>
+}
+
+
+@section Scripts {
+    <script> 
+        var editor = new FroalaEditor('#ImageUrl');
+        var editor = new FroalaEditor('#Description');
+        </script>
+            
+}

@@ -1,0 +1,57 @@
+﻿@model List<HistorySpot.Models.TopHistoricalSite>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <div class="sites-container">
+        <h1>DE TOPP 16 HISTORISKA PLATSERNA I VÄRLDEN</h1>
+
+        @foreach (var site in Model)
+        {
+            <div class="site">
+                <img src="@site.ImageUrl" alt="@site.Name">
+                <div>
+                    <h3>@site.Name</h3>
+                    <p><strong>Plats:</strong> @site.Location</p>
+                    <p>@site.Description</p>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+
+    .sites-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .site {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+        .site img {
+            max-width: 150px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+</style>
